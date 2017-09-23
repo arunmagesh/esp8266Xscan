@@ -2,6 +2,7 @@
  *  This sketch demonstrates how to scan WiFi networks which gives extensive infornation about the AP like MAC address,RSSI and Encryption. 
 
  */
+
 #include "ESP8266WiFi.h"
 
 void setup() {
@@ -35,11 +36,15 @@ void loop() {
       Serial.print(i + 1);
       Serial.print(" SSID: ");
       Serial.print(WiFi.SSID(i));
-       Serial.print(" MAC: ");
+       Serial.print("  MAC:  ");
       Serial.print(WiFi.BSSIDstr(i));
-      Serial.print(" RSSI:");
+      Serial.print("   RSSI: ");
       Serial.print(WiFi.RSSI(i));
-      Serial.print("db ENC:");
+       Serial.print("db   CH:");
+      Serial.print(WiFi.channel(i));
+      Serial.print("   Hidden: ");
+      Serial.print(WiFi.isHidden(i));
+      Serial.print("   ENC: ");
       switch(WiFi.encryptionType(i))
       {
         case ENC_TYPE_NONE:
@@ -52,6 +57,7 @@ void loop() {
               Serial.print("CCMP|");
         case ENC_TYPE_AUTO:
               Serial.println("");
+        ;
       }
       delay(100);
     }
