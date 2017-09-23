@@ -52,8 +52,6 @@ void loop() {
               Serial.print("CCMP|");
         case ENC_TYPE_AUTO:
               Serial.println("");
-        default:
-              Serial.print("ERR");
       }
       delay(100);
     }
